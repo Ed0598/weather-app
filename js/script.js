@@ -38,20 +38,22 @@ button.addEventListener('click',()=>{
             image.src="http://openweathermap.org/img/wn/"+elem.weather[0].icon+"@2x.png"
             divCarte.appendChild(image)
             
-            //sunrise 
+            /*//sunrise 
             let sunrise= document.createElement('p')
             sunrise.classList.add("sunrise")
             divCarte.appendChild(sunrise)
             if (divCarte.classList.contains("class12")){
-                sunrise.textContent= "Sunrise : " + new Date(json.city.sunrise*1000).getHours()+":"+new Date(json.city.sunrise*1000).getMinutes()
+                sunrise.textContent= "🌅 " + new Date(json.city.sunrise*1000).getHours()+":"+new Date(json.city.sunrise*1000).getMinutes()
             
-            }
+            }*/
 
-            //sunset 
+            /* //sunset 
             let sunset = document.createElement('p')
-            sunset.classList.add("sunset")
-            sunset.textContent= "Sunset : " + new Date (json.city.sunset*1000).getHours() + ":"+new Date(json.city.sunset*1000).getMinutes()
             divCarte.appendChild(sunset)
+            if (divCarte.classList.contains("class12")){
+            sunset.innerHTML= "🌇 " + new Date (json.city.sunset*1000).getHours() + ":"+new Date(json.city.sunset*1000).getMinutes()
+            }*/
+                        
 
             // date et heure 
             let dayHour= document.createElement('p')
@@ -66,8 +68,9 @@ button.addEventListener('click',()=>{
             //temperature
             let temperature=document.createElement("p")
             temperature.classList.add("temperatureactuelle")
-            temperature.textContent=((elem.main.temp).toFixed(0) + "°" )
+            temperature.textContent= "🌡️ "+((elem.main.temp).toFixed(0) + "°" )
             divCarte.appendChild(temperature)
+
             //temperature min/max
             let tempsMinMax=document.createElement("p")
             tempsMinMax.classList.add("temperatureMax")
@@ -83,20 +86,26 @@ button.addEventListener('click',()=>{
             // vitesse du vent 
             let vVent=document.createElement("p")
             vVent.classList.add("vitessevent")
-            vVent.textContent= "Wind : "+((elem.wind.speed)*3.6).toFixed(0)+ " km/h "
+            vVent.textContent= "💨 : "+((elem.wind.speed)*3.6).toFixed(0)+ " km/h "
             divCarte.appendChild(vVent)
 
             // pourcentage d'humidité
             let hum= document.createElement("p")
             hum.classList.add("humidité")
-            hum.textContent= "Humidity : " +elem.main.humidity + "%"
+            hum.textContent= "💧 : " +elem.main.humidity + "%"
             divCarte.appendChild(hum)
+
+            //affichage carte uniquement midi
+
+            if (divCarte.classList.contains("class12")){
+            }
+            else{
+                divCarte.style.display="none"
+            }
+            
+
         }
 
-            /* moyenne des t°
-            let moy= document.createElement("p")
-            moy.classList.add("moyenneTemperature")
-            moy.textContent = elem.main.temp*/
 
     })
 

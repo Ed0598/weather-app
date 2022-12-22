@@ -2,17 +2,43 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: #bde0fe;
+    display: flex;
+    flex-direction: column;
+
+    h1{
+        margin-bottom: 1em;
+        text-align: center;
+    }
+    button,input{
+        border: none;
+        border-radius: 50px;
+    }
+    input{
+        text-align: center;
+        width: fit-content;
+    }
+}
 div
 {
     display: flex;
     flex-direction: column;
+    background-color: #bde0fe;
     div{
+    background-image: linear-gradient(to bottom,#60efff,#f1faee);
+    display: flex;
     border: 1px solid black;
     margin: 2em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-        
-        
+    border-radius: 40px;
+    font-family: 'Raleway', sans-serif; 
+    }
+    h2{
+        text-align: center;
+        font-family: 'Roboto Slab', serif;
     }
 }
+
