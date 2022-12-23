@@ -7,6 +7,7 @@ const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Sa
 const divGraph= document.querySelector(".myGraph")
 let arrDay= []
 let arrTemp=[]
+let arrFeels=[]
 
 
 button.addEventListener('click',()=>
@@ -35,9 +36,6 @@ button.addEventListener('click',()=>
             divCarte.classList.add("carte")
             div.appendChild(divCarte)
 
-        
-
-
         for (elem of list )
         {
            
@@ -45,8 +43,6 @@ button.addEventListener('click',()=>
             ensemble.classList.add(elem.dt_txt.split(" ")[0],"class"+elem.dt_txt.substring(11,13))
             divCarte.appendChild(ensemble)
 
-            
-            
             //image
             let des=document.createElement("div")
             des.classList.add("image")
@@ -65,8 +61,6 @@ button.addEventListener('click',()=>
             dayHour.textContent= weekday[new Date(elem.dt_txt).getDay()]
             ensemble.appendChild(dayHour)
 
-
-            
             //temperature
             let divTemp=document.createElement("div")
             divTemp.classList.add("temperatures")
@@ -93,8 +87,6 @@ button.addEventListener('click',()=>
             feels.textContent= "Feels like : "+(elem.main.feels_like).toFixed(0) +"°"
             reste.appendChild(feels)
 
-            
-
             // vitesse du vent 
             let vVent=document.createElement("p")
             vVent.classList.add("vitessevent")
@@ -112,9 +104,8 @@ button.addEventListener('click',()=>
             if (ensemble.classList.contains("class12"))
             {
                 arrDay.push(weekday[new Date(elem.dt_txt).getDay()])
-            console.log(arrDay);
                 arrTemp.push((elem.main.temp).toFixed(0))
-                console.log(arrTemp)
+                arrFeels.push((elem.main.feels_like).toFixed(0))
             }
             else
             {
@@ -142,6 +133,19 @@ button.addEventListener('click',()=>
                     'red',
                 ],
                 pointBorderWidth: 3,
+            },
+            {
+                label: 'Temperatures ressenties',
+                data: arrFeels,
+                backgroundColor: "red",
+                borderColor:"grey",
+                tension: 0.5,
+                pointBorderColor: 
+                [
+                    'red',
+                ],
+                pointBorderWidth: 3,
+
             }]
 
          }
