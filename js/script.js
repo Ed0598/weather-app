@@ -24,7 +24,6 @@ button.addEventListener('click',()=>
         div.appendChild(h2)
         h2.textContent=nameCity
         let list= json.list
-        console.log(json) 
         
         let divCarte= document.createElement("div")
             divCarte.classList.add("carte")
