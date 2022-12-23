@@ -5,18 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <title>Weather App</title>
 </head>
 <body>
     <h1>Weather App</h1>
-    <input type="text" name="city" id="city" placeholder="Enter your location">
-    <button type="submit"class="Salut Bonjour">Search</button>
-    
-    
+    <div class="button">
+        <input type="text" name="city" id="city" placeholder="Enter your location">
+        <button type="submit"class="buttonsearch">Search</button>
+    </div>
+
+    <div class="myGraph">
+        <canvas class="barCanvas" aria-label="chart" role="img" display: block ; box-sizing:border-box; height: 576px ; width: 1152px ></canvas>
+    </div>
+
 </body>
 </html>

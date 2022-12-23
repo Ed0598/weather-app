@@ -4,34 +4,60 @@
 }
 
 body {
-  background-color: #bde0fe;
-  display: flex;
-  flex-direction: column;
+  background: url("/assets/background.jpg") no-repeat;
 }
 body h1 {
-  margin-bottom: 1em;
+  margin: 1em;
   text-align: center;
+  font-size: 2.5em;
+  font-family: "Abril Fatface", cursive;
 }
-body button, body input {
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.button button, .button input {
   border: none;
   border-radius: 50px;
 }
-body input {
+.button input {
   text-align: center;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
+.button button {
+  display: flex;
+  flex-direction: row;
+  max-width: 40vw;
+  justify-content: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: linear-gradient(90deg, rgb(129, 230, 217) 0%, rgb(79, 209, 197) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79, 209, 197, 0.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  margin-left: 2vw;
+}
 
 div {
   display: flex;
   flex-direction: column;
-  background-color: #bde0fe;
 }
-div div {
-  background-image: linear-gradient(to bottom, #60efff, #f1faee);
+div .class12 {
+  background-image: linear-gradient(to bottom left, #26baee, #9fe8fa);
   display: flex;
-  border: 1px solid black;
   margin: 2em;
   flex-direction: column;
   justify-content: center;
@@ -39,7 +65,68 @@ div div {
   border-radius: 40px;
   font-family: "Raleway", sans-serif;
 }
+div .class12 .image {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  font-size: 1em;
+  margin: 1em;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+}
+div .class12 .image p.description {
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+}
+div .class12 .dayandhour {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+div .class12 .temperatures {
+  display: flex;
+  flex-direction: row;
+  border-style: none;
+  background: none;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 1vw;
+  font-size: 1em;
+  align-items: flex-end;
+}
+div .class12 .reste {
+  margin: 0;
+  background: none;
+  font-size: 1em;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 1em;
+}
 div h2 {
   text-align: center;
   font-family: "Roboto Slab", serif;
+  font-size: 2em;
+  margin-top: 1em;
+}
+
+.myGraph {
+  text-align: center;
+}
+.myGraph canvas {
+  margin-left: 3vw;
+  margin-bottom: 1vw;
+}
+
+@media screen and (min-width: 768px) {
+  .carte {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .class12 {
+    max-width: 16vw;
+  }
 }/*# sourceMappingURL=style.css.map */

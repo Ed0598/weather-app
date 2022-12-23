@@ -4,8 +4,13 @@ let div=document.createElement("div")
 document.body.appendChild(div)
 let now = new Date ()
 const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const divGraph= document.querySelector(".myGraph")
+let arrDay= []
+let arrTemp=[]
 
-button.addEventListener('click',()=>{
+
+button.addEventListener('click',()=>
+{
     div.innerHTML=""
     let userLocation= input.value
     let fetchWeather=(userLocation) => fetch('https://api.openweathermap.org/data/2.5/forecast?q='+userLocation+'&appid=e69c960a61169de7a06b2a5805d637b0&units=metric')
@@ -26,88 +31,120 @@ button.addEventListener('click',()=>{
             dayHour.textContent= weekday[now.getDay()] + ", " + now.getHours()+ ":" + now.getMinutes()
             div.appendChild(dayHour) a faire plus tard (rajouter heure en fonction de la où on se trouve dans le monde)*/
 
+        let divCarte= document.createElement("div")
+            divCarte.classList.add("carte")
+            div.appendChild(divCarte)
+
+        
+
+
+        for (elem of list )
+        {
+           
+            let ensemble=document.createElement("div")
+            ensemble.classList.add(elem.dt_txt.split(" ")[0],"class"+elem.dt_txt.substring(11,13))
+            divCarte.appendChild(ensemble)
 
             
-
-        for (elem of list ){
-            let divCarte=document.createElement("div")
-            divCarte.classList.add(elem.dt_txt.split(" ")[0],"class"+elem.dt_txt.substring(11,13))
-            div.appendChild(divCarte)
+            
             //image
+            let des=document.createElement("div")
+            des.classList.add("image")
+            let description=document.createElement("p")
+            description.classList.add("description")
+            description.textContent= elem.weather[0].description
             let image=document.createElement("img")
             image.src="http://openweathermap.org/img/wn/"+elem.weather[0].icon+"@2x.png"
-            divCarte.appendChild(image)
+            ensemble.appendChild(des)
+            des.appendChild(image)
+            des.appendChild(description)
             
-            /*//sunrise 
-            let sunrise= document.createElement('p')
-            sunrise.classList.add("sunrise")
-            divCarte.appendChild(sunrise)
-            if (divCarte.classList.contains("class12")){
-                sunrise.textContent= "🌅 " + new Date(json.city.sunrise*1000).getHours()+":"+new Date(json.city.sunrise*1000).getMinutes()
-            
-            }*/
-
-            /* //sunset 
-            let sunset = document.createElement('p')
-            divCarte.appendChild(sunset)
-            if (divCarte.classList.contains("class12")){
-            sunset.innerHTML= "🌇 " + new Date (json.city.sunset*1000).getHours() + ":"+new Date(json.city.sunset*1000).getMinutes()
-            }*/
-                        
-
             // date et heure 
             let dayHour= document.createElement('p')
             dayHour.classList.add("dayandhour")
-            let idk= new Date(elem.dt_txt).toLocaleString('fr-BE').substring(11,16)
-            dayHour.textContent= new Date(elem.dt_txt).toLocaleString('fr-BE').substring(0,5)+ " "+idk
-            divCarte.appendChild(dayHour)
-            let dayy= dayHour.textContent
+            dayHour.textContent= weekday[new Date(elem.dt_txt).getDay()]
+            ensemble.appendChild(dayHour)
 
 
             
             //temperature
+            let divTemp=document.createElement("div")
+            divTemp.classList.add("temperatures")
             let temperature=document.createElement("p")
             temperature.classList.add("temperatureactuelle")
             temperature.textContent= "🌡️ "+((elem.main.temp).toFixed(0) + "°" )
-            divCarte.appendChild(temperature)
+            ensemble.appendChild(divTemp)
+            divTemp.appendChild(temperature)
 
             //temperature min/max
             let tempsMinMax=document.createElement("p")
             tempsMinMax.classList.add("temperatureMax")
             tempsMinMax.textContent= (elem.main.temp_min).toFixed(0) + "°"+ "/" +((elem.main.temp_max).toFixed(0) + "°")
-            temperature.appendChild(tempsMinMax) 
-            
+            divTemp.appendChild(tempsMinMax) 
+
+            //div reste
+            let reste=document.createElement("div")
+            reste.classList.add("reste")
+            ensemble.appendChild(reste)
+
             //ressenti
             let feels=document.createElement("p")
             feels.classList.add("ressenti")
             feels.textContent= "Feels like : "+(elem.main.feels_like).toFixed(0) +"°"
-            divCarte.appendChild(feels)
+            reste.appendChild(feels)
+
+            
 
             // vitesse du vent 
             let vVent=document.createElement("p")
             vVent.classList.add("vitessevent")
-            vVent.textContent= "💨 : "+((elem.wind.speed)*3.6).toFixed(0)+ " km/h "
-            divCarte.appendChild(vVent)
+            vVent.textContent= "💨 "+((elem.wind.speed)*3.6).toFixed(0)+ " km/h "
+            reste.appendChild(vVent)
 
             // pourcentage d'humidité
             let hum= document.createElement("p")
             hum.classList.add("humidité")
-            hum.textContent= "💧 : " +elem.main.humidity + "%"
-            divCarte.appendChild(hum)
+            hum.textContent= "💧 " +elem.main.humidity + "%"
+            reste.appendChild(hum)
 
             //affichage carte uniquement midi
 
-            if (divCarte.classList.contains("class12")){
+            if (ensemble.classList.contains("class12"))
+            {
+                arrDay.push(weekday[new Date(elem.dt_txt).getDay()])
+            console.log(arrDay);
+                arrTemp.push((elem.main.temp).toFixed(0))
+                console.log(arrTemp)
             }
-            else{
-                divCarte.style.display="none"
+            else
+            {
+                ensemble.style.display="none"
             }
-            
-
         }
-
-
     })
+        document.body.insertBefore(div,divGraph)
+        const barCanvas= document.querySelector("canvas");
+        const barChart = new Chart(barCanvas, 
+    {
+        type:"line",
+        data: 
+        {
+            labels: arrDay,
+            datasets: 
+            [{
+                label: 'Température par jour',
+                data: arrTemp,
+                backgroundColor: "cyan",
+                borderColor:"black",
+                tension: 0.5,
+                pointBorderColor: 
+                [
+                    'red',
+                ],
+                pointBorderWidth: 3,
+            }]
 
+         }
+         
+    })
 })
-
