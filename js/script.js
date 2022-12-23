@@ -26,12 +26,6 @@ button.addEventListener('click',()=>
         let list= json.list
         console.log(json) 
         
-         //jour + heure
-            /*let dayHour=document.createElement("p")
-            dayHour.classList.add("jouretheure")
-            dayHour.textContent= weekday[now.getDay()] + ", " + now.getHours()+ ":" + now.getMinutes()
-            div.appendChild(dayHour) a faire plus tard (rajouter heure en fonction de la où on se trouve dans le monde)*/
-
         let divCarte= document.createElement("div")
             divCarte.classList.add("carte")
             div.appendChild(divCarte)
