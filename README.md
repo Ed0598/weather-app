@@ -24,12 +24,12 @@ Specifications :
 
 🌱 Must haves
 - In the home page the user can enter the city of their choice (think of the right HTML elements here)
-![assets/firstscreen.png](assets/firstscreen.png)
+![assets/firstscreen.png](assets/images/firstscreen.png)
 
 
 - On clicking the SUBMIT button or pressing ENTER the application will display the weather for the next 5 days
-![assets/firstscreen.png](assets/secondscreen.png)
-![assets/firstscreen.png](assets/thirdscreen.png)
+![assets/firstscreen.png](assets/images/secondscreen.png)
+![assets/firstscreen.png](assets/timages/hirdscreen.png)
 
 
 💡 Not sure where to start? Split this features into multiple smaller todos (in your code, sketch, ...)
@@ -39,7 +39,7 @@ Specifications :
 - Allow the user to compare the weather in multiple cities simultaneously
 - Use the API of https://unsplash.com/ to show a photo of the city they entered in the form.
 - Display a line graph of temperature over time using a library such as Chart.js 
-![assets/firstscreen.png](assets/fourthscreen.png)
+![assets/firstscreen.png](assets/images/fourthscreen.png)
 
 
 Bugs:
