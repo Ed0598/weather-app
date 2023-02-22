@@ -24,8 +24,6 @@ body h1 {
 }
 .button input {
   text-align: center;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
 }
 .button button {
@@ -55,7 +53,7 @@ div {
   display: flex;
   flex-direction: column;
 }
-div .class12 {
+div .heuresetjours {
   background-image: linear-gradient(to bottom left, #26baee, #9fe8fa);
   display: flex;
   margin: 2em;
@@ -65,7 +63,7 @@ div .class12 {
   border-radius: 40px;
   font-family: "Raleway", sans-serif;
 }
-div .class12 .image {
+div .heuresetjours .image {
   display: flex;
   flex-direction: column;
   padding: 1em;
@@ -76,16 +74,16 @@ div .class12 .image {
   align-items: center;
   border-radius: 40px;
 }
-div .class12 .image p.description {
+div .heuresetjours .image p.description {
   font-size: 1em;
   font-weight: 600;
   text-align: center;
 }
-div .class12 .dayandhour {
+div .heuresetjours .dayandhour {
   font-size: 1.5em;
   margin-bottom: 0.5em;
 }
-div .class12 .temperatures {
+div .heuresetjours .temperatures {
   display: flex;
   flex-direction: row;
   border-style: none;
@@ -96,7 +94,7 @@ div .class12 .temperatures {
   font-size: 1em;
   align-items: flex-end;
 }
-div .class12 .reste {
+div .heuresetjours .reste {
   margin: 0;
   background: none;
   font-size: 1em;

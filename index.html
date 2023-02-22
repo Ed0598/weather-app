@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name ="description" http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="./js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,11 +17,14 @@
     <h1>Weather App</h1>
     <div class="button">
         <input type="text" name="city" id="city" placeholder="Enter your location">
+        <script defer src="./js/script.js"></script>
         <button type="submit"class="buttonsearch">Search</button>
+       
     </div>
 
     <div class="myGraph">
         <canvas class="barCanvas" aria-label="chart" role="img" display: block ; box-sizing:border-box; height: 576px ; width: 1152px ></canvas>
+        <script defer src="./js/graph.js"></script>
     </div>
 
 </body>
