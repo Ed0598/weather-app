@@ -42,6 +42,3 @@ Specifications :
 ![assets/firstscreen.png](assets/images/fourthscreen.png)
 
 
-Bugs:
-- Only display the 12:00 hours so if the user search after noon it doesn't show the weather of the day....
-
